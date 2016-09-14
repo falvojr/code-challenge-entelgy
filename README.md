@@ -16,4 +16,4 @@ Projeto construído de acordo com as especificações do "Code Challenge Entelgy
 
 ### Comentários ###
 
-TODO
+[TODO](src/master/COMMENTS.md)
