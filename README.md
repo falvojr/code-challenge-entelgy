@@ -7,7 +7,7 @@ Projeto construído de acordo com as especificações do "Code Challenge Entelgy
 * HTML, CSS e JavaScript;
 * [Angular](https://github.com/angular/angular.js): Framework JavaScript, criado pelo Google, no estilo MVC e aderente ao conceito de SPA (Single Page Application). Além disso, provê extensões significativas para o HTML;
 * [Angular Material](https://github.com/angular/material): Framework de UI para Angular e implementação de referência da especificação Google Material Design;
-* [NPM](https://github.com/npm/npm): Flexível gerenciador de pacotes, builds e dependências feito em [Node.js](https://github.com/nodejs/node).
+* [NPM](https://github.com/npm/npm): Flexível gerenciador de pacotes, builds e dependências em [Node.js](https://github.com/nodejs/node).
 
 ### Backend ###
 
