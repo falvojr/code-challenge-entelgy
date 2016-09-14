@@ -11,7 +11,7 @@ Projeto construído de acordo com as especificações do "Code Challenge Entelgy
 
 * Java
 * [Spring Boot](https://github.com/spring-projects/spring-boot): Permite a criação de aplicações Web em Java abstraindo configurações e o uso de XML, através do conceito de Convenção sobre Configuração (Convention over Configuration);
-* [Spring Data REST](https://github.com/spring-projects/spring-data-rest): Analisa modelo de domínio da aplicação e expõe seus recursos seguindo a semântica do protocolo HTTP usando estilo arquitetural [Representational State Transfer (REST)](https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm);
+* [Spring Data REST](https://github.com/spring-projects/spring-data-rest): Analisa o modelo de domínio da aplicação e expõe seus recursos seguindo a semântica do protocolo HTTP através do estilo arquitetural [REST](https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm);
 * [Spring Data MongoDB](https://github.com/spring-projects/spring-data-mongodb) TODO.
 
 ### Extras ###
