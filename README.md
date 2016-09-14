@@ -14,6 +14,6 @@ Projeto construído de acordo com as especificações do "Code Challenge Entelgy
 * [Spring Data REST](https://github.com/spring-projects/spring-data-rest): TODO;
 * [Spring Data MongoDB](https://github.com/spring-projects/spring-data-mongodb) TODO.
 
-### Comentários ###
+### Extras ###
 
 [COMMENTS.md](COMMENTS.md)
