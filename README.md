@@ -1,29 +1,19 @@
-# README #
+# Code Challenge Entelgy #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Projeto construído de acordo com as especificações do "Code Challenge Entelgy".
 
-### What is this repository for? ###
+### Frontend ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+* [Angular](https://github.com/angular/angular.js): Framework JavaScript, criado pelo Google, no estilo MVC aderente ao conceito de SPA (Single Page Application). Além disso, provê extensões importantes para o HTML;
+* [Angular Material](https://github.com/angular/material): Framework de UI para Angular e implementação de referência da especificação Google Material Design.
 
-### How do I get set up? ###
+### Backend ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+* Java
+* [Spring Boot](https://github.com/spring-projects/spring-boot): Permite a criação de aplicações Web em Java sem a necessidade de configuração e uso de XML, utilizando o conceito de Convenção sobre Configuração (Convention over Configuration);
+* [Spring Data REST](https://github.com/spring-projects/spring-data-rest): TODO;
+* [Spring Data MongoDB](https://github.com/spring-projects/spring-data-mongodb) TODO.
 
-### Contribution guidelines ###
+### Comentários ###
 
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+TODO
