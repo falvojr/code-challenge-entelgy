@@ -10,7 +10,7 @@ Projeto construído de acordo com as especificações do "Code Challenge Entelgy
 ### Backend ###
 
 * Java
-* [Spring Boot](https://github.com/spring-projects/spring-boot): Permite a criação de aplicações Web em Java sem a necessidade de configuração e uso de XML, utilizando o conceito de Convenção sobre Configuração (Convention over Configuration);
+* [Spring Boot](https://github.com/spring-projects/spring-boot): Permite a criação de aplicações Web em Java abstraindo configurações e o uso de XML, através do conceito de Convenção sobre Configuração (Convention over Configuration);
 * [Spring Data REST](https://github.com/spring-projects/spring-data-rest): TODO;
 * [Spring Data MongoDB](https://github.com/spring-projects/spring-data-mongodb) TODO.
 
