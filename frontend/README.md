@@ -35,3 +35,5 @@ O projeto vem pre-configurado com um servidor web de desenvolvimento local. É u
 ```
 node ./node_modules/live-server/live-server.js . --open=app
 ```
+
+*O comando acima deve servir a aplicação localmente e abrir o browser padrão no endereço padrão.*
