@@ -22,7 +22,7 @@ package.json            --> descreve o projeto, informando a url do repositório
 ## Dependências ##
 
 Instale as dependências do projeto via [`npm`](https://github.com/npm/npm).
-Isso instalará o AngularJS, Amgular Material e todas as ferramentas definidas no arquivo `package.json`: 
+Isso instalará o AngularJS, Angular Material e todas as ferramentas definidas no arquivo `package.json`: 
 
 ```
 npm install
