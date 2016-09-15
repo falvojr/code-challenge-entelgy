@@ -2,14 +2,14 @@
 
 Projeto construído de acordo com as especificações do "Code Challenge Entelgy".
 
-### Frontend ###
+### [FrontEnd](frontend/README.md) ###
 
 * HTML, CSS e JavaScript;
 * [Angular](https://github.com/angular/angular.js): Framework JavaScript, criado pelo Google, no estilo MVC e aderente ao conceito de SPA (Single Page Application). Além disso, provê extensões significativas para o HTML;
 * [Angular Material](https://github.com/angular/material): Framework de UI para Angular e implementação de referência da especificação Google Material Design;
 * [NPM](https://github.com/npm/npm): Flexível gerenciador de pacotes, builds e dependências em [Node.js](https://github.com/nodejs/node).
 
-### Backend ###
+### [BackEnd](backend/README.md) ###
 
 * Java;
 * [Spring Boot](https://github.com/spring-projects/spring-boot): Permite a criação de aplicações Web em Java abstraindo configurações e o uso de XML, através do conceito de Convenção sobre Configuração (Convention over Configuration);
