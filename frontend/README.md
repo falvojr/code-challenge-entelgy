@@ -1,6 +1,6 @@
 # Frontend #
 
-Primeiramente, clone o repositório do projeto via [`git`](http://git-scm.com):
+Primeiramente, clone o repositório do projeto via [`git`](http://git-scm.com) e acesse o diretório de frontend:
 
 ```
 git clone git@bitbucket.org:falvojr/entelgy-challenge.git
