@@ -30,7 +30,7 @@ app/                    --> todo o código-fonte da aplicação
 
 ## Execução ##
 
-O projeto vem pre-configurado com um servidor web de desenvolvimento local. É uma ferramenta node.js chamada [`live-server`] [https://www.npmjs.com/package/live-server].
+O projeto vem pre-configurado com um servidor web de desenvolvimento local. É uma ferramenta Node.js chamada [`live-server`](https://www.npmjs.com/package/live-server).
 
 ```
 node ./node_modules/live-server/live-server.js . --open=app
