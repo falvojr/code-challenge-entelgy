@@ -17,6 +17,4 @@ Projeto construído de acordo com as especificações do "Code Challenge Entelgy
 * [Spring Data MongoDB](https://github.com/spring-projects/spring-data-mongodb): Fornece uma interface para integração com o banco de dados NoSQL MongoDB;
 * [Gradle](https://github.com/gradle/gradle): Sistema avançado de automatização de builds que une a flexibilidade do Ant com o gerenciamento de dependências e convenções do Maven.
 
-### Extras ###
-
-[COMMENTS.md](COMMENTS.md)
+### [Comentários](COMMENTS.md) ###
