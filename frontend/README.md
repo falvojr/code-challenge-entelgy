@@ -1,6 +1,6 @@
 # Frontend #
 
-Primeiramente, clone o repositório do projeto via [`git`][git]:
+Primeiramente, clone o repositório do projeto via [`git`](git):
 
 ```
     git clone git@bitbucket.org:falvojr/entelgy-challenge.git
