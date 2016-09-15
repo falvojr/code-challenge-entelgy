@@ -9,7 +9,8 @@ cd frontend
 
 ## Dependências ##
 
-Todas as dependências são geridas via [`npm`](https://www.npmjs.org). 
+Instale as dependências do projeto via [`npm`](https://www.npmjs.org).
+Isso instalará o AngularJS, Amgular Material e todas as ferramentas definidas no arquivo `package.json`: 
 
 ```
 npm install
