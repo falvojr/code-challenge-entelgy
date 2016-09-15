@@ -1,7 +1,7 @@
 # Code Challenge Entelgy #
 
 Projeto construído de acordo com as especificações do "Code Challenge Entelgy". As seções a seguir sumarizam as tecnologias utilizadas e decisões tomadas para a implementação.  
-Seções com link levam a uma nova Markdown, com mais detalhes sobre as mesmas.
+As seções com link (FrontEnd, BackEnd e Comentários) levam a uma nova Markdown, com mais informações sobre seu respectivo contexto.
 
 ### [FrontEnd](frontend) ###
 
