@@ -24,4 +24,5 @@ Seção destinada a comentários relacionados às decisões e trabalhos futuros.
 ### Contato ###
 
 [Venilton FalvoJr](https://br.linkedin.com/in/falvojr)
-falvojr@gmail.com
+
+[falvojr@gmail.com](mail:falvojr@gmail.com)
