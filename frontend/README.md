@@ -9,7 +9,7 @@ cd frontend
 
 ## Dependências ##
 
-Instale as dependências do projeto via [`npm`](https://www.npmjs.org).
+Instale as dependências do projeto via [`npm`](https://github.com/npm/npm).
 Isso instalará o AngularJS, Amgular Material e todas as ferramentas definidas no arquivo `package.json`: 
 
 ```
@@ -31,7 +31,7 @@ app/                    --> todo o código-fonte da aplicação
 
 ## Execução ##
 
-O projeto vem pre-configurado com um servidor web de desenvolvimento local. É uma ferramenta Node.js chamada [`live-server`](https://www.npmjs.com/package/live-server).
+O projeto vem preconfigurado com um pequeno servidor web, uma ferramenta Node.js chamada [`live-server`](https://github.com/tapio/live-server).
 
 ```
 node ./node_modules/live-server/live-server.js . --open=app
