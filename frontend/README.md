@@ -3,8 +3,8 @@
 Primeiramente, clone o repositório do projeto via [`git`](http://git-scm.com):
 
 ```
-    git clone git@bitbucket.org:falvojr/entelgy-challenge.git
-    cd frontend
+git clone git@bitbucket.org:falvojr/entelgy-challenge.git
+cd frontend
 ```
 
 ## Dependências ##
@@ -33,5 +33,5 @@ app/                    --> todo o código-fonte da aplicação
 O projeto vem pre-configurado com um servidor web de desenvolvimento local. É uma ferramenta node.js chamada [`live-server`] [https://www.npmjs.com/package/live-server].
 
 ```
- node ./node_modules/live-server/live-server.js . --open=app
+node ./node_modules/live-server/live-server.js . --open=app
 ```
