@@ -1,9 +1,11 @@
 # Frontend #
 
-Primeiramente, clone o repositório do projeto usando [Git][git]:
+Primeiramente, clone o repositório do projeto via [`git`][git]:
 
+```
     git clone git@bitbucket.org:falvojr/entelgy-challenge.git
     cd frontend
+```
 
 ## Dependências ##
 
@@ -15,7 +17,7 @@ npm install
 
 O comando acima deve gerar uma nova pasta em seu projeto:
 
- - `node_modules` - contém os pacotes NPM para das dependências do projeto
+* node_modules - contém os pacotes NPM para das dependências do projeto
 
 ## Estrutura ##
 
