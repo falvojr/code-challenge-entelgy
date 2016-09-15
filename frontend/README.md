@@ -1,6 +1,6 @@
 # Frontend #
 
-Primeiramente, clone o repositório do projeto via [`git`](git):
+Primeiramente, clone o repositório do projeto via [`git`](http://git-scm.com):
 
 ```
     git clone git@bitbucket.org:falvojr/entelgy-challenge.git
@@ -38,6 +38,5 @@ O projeto vem pre-configurado com um servidor web de desenvolvimento local. É u
  node ./node_modules/live-server/live-server.js . --open=app
 ```
 
-[git]: http://git-scm.com/
 [npm]: https://www.npmjs.org/
 [live-server]: https://www.npmjs.com/package/live-server
