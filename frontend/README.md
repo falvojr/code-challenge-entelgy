@@ -7,17 +7,6 @@ git clone git@bitbucket.org:falvojr/entelgy-challenge.git
 cd frontend
 ```
 
-## Dependências ##
-
-Instale as dependências do projeto via [`npm`](https://github.com/npm/npm).
-Isso instalará o AngularJS, Amgular Material e todas as ferramentas definidas no arquivo `package.json`: 
-
-```
-npm install
-```
-
-*O comando acima deve gerar a pasta node_modules, que contém os pacotes NPM para das dependências do projeto.*
-
 ## Estrutura ##
 
 ```
@@ -29,6 +18,17 @@ app/                    --> todo o código-fonte da aplicação
   index.html            --> layout da aplicação (template HTML)
 ```
 
+## Dependências ##
+
+Instale as dependências do projeto via [`npm`](https://github.com/npm/npm).
+Isso instalará o AngularJS, Amgular Material e todas as ferramentas definidas no arquivo `package.json`: 
+
+```
+npm install
+```
+
+*O comando acima deve gerar a pasta node_modules, que contém os pacotes NPM para das dependências do projeto.*
+
 ## Execução ##
 
 O projeto vem preconfigurado com um pequeno servidor web, uma ferramenta Node.js chamada [`live-server`](https://github.com/tapio/live-server).
@@ -37,4 +37,4 @@ O projeto vem preconfigurado com um pequeno servidor web, uma ferramenta Node.js
 node ./node_modules/live-server/live-server.js . --open=app
 ```
 
-*O comando acima deve servir a aplicação localmente e abrir o browser padrão no endereço padrão.*
+*O comando acima deve servir a aplicação localmente e abrir o browser padrão no endereço da aplicação.*
