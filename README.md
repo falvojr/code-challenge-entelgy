@@ -8,7 +8,7 @@ As seções com link (FrontEnd, BackEnd e Comentários) levam a uma nova Markdow
 * HTML, CSS e JavaScript;
 * [Angular](https://github.com/angular/angular.js): Framework JavaScript, criado pelo Google, no estilo MVC e aderente ao conceito de SPA (Single Page Application). Além disso, provê extensões significativas para o HTML;
 * [Angular Material](https://github.com/angular/material): Framework de UI para Angular e implementação de referência da especificação Google Material Design;
-* [NPM](https://github.com/npm/npm): Flexível gerenciador de pacotes, builds e dependências em [Node.js](https://github.com/nodejs/node). É uma sigla de Node Package Manager.
+* [NPM](https://github.com/npm/npm): Flexível gerenciador de pacotes, builds e dependências em [Node.js](https://github.com/nodejs/node), sigla de Node Package Manager.
 
 ### [BackEnd](backend) ###
 
