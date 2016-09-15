@@ -1,6 +1,7 @@
 # Code Challenge Entelgy #
 
-Projeto construído de acordo com as especificações do "Code Challenge Entelgy".
+Projeto construído de acordo com as especificações do "Code Challenge Entelgy". As seções a seguir sumarizam as tecnologias utilizadas e decisões tomadas para a implementação.  
+Seções com link levam a uma nova Markdown, com mais detalhes sobre as mesmas.
 
 ### [FrontEnd](frontend) ###
 
