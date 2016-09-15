@@ -16,6 +16,7 @@ app/                    --> todo o código-fonte da aplicação
      candidates/        --> pacote com os recursos do domínio de candidatos
 	 votes/             --> pacote com os recursos do domínio de votos
   index.html            --> layout da aplicação (template HTML)
+package.json            --> descreve o projeto como um todo, informando a url do repositório, versão do projeto, dependências, dentre outras coisas.
 ```
 
 ## Dependências ##
