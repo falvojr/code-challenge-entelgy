@@ -13,13 +13,17 @@
    * @param avatarsService
    * @constructor
    */
-  function CandidateController( candidateService, $mdSidenav, $mdBottomSheet, $timeout, $log ) {
+  function CandidateController( candidateService, vcRecaptchaService, $mdSidenav, $mdBottomSheet, $timeout, $log ) {
     var self = this;
 
-    self.selected     = null;
-    self.candidates        = [ ];
-    self.selectCandidate   = selectCandidate;
-    self.toggleList   = toggleCandidatesList;
+    self.selected             = null;
+    self.candidates           = [ ];
+    self.selectCandidate      = selectCandidate;
+    self.toggleList           = toggleCandidatesList;
+    self.recaptchaResponse    = null;
+    self.recaptchaSetWidgetId = recaptchaSetWidgetId;
+    self.recaptchaSubmit      = recaptchaSubmit;
+    self.recaptchaReload      = recaptchaReload;
 
     // Load all registered candidates
 
@@ -42,13 +46,28 @@
     }
 
     /**
-     * Select the current avatars
+     * Select the current candidate
      * @param menuId
      */
-    function selectCandidate ( candidate ) {
+    function selectCandidate (candidate) {
       self.selected = angular.isNumber(candidate) ? self.candidates[candidate] : candidate;
     }
 
+    function recaptchaSetWidgetId(widgetId) {
+        console.info('Created widget ID: %s', widgetId);
+        self.widgetId = widgetId;
+    }
+
+    function recaptchaSubmit(response) {
+      console.info('Response available');
+      self.recaptchaResponse = response;
+    }
+
+    function recaptchaReload() {
+      console.info('Captcha expired. Resetting response object');
+      vcRecaptchaService.reload(self.widgetId);
+      $scope.response = null;
+    };
   }
 
 })();

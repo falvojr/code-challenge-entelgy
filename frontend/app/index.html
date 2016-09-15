@@ -20,7 +20,6 @@
           display: none !important;
         }
     </style>
-
   </head>
 
   <body ng-app="starterApp" layout="column" ng-controller="CandidateController as ul" ng-cloak>
@@ -49,10 +48,14 @@
           </md-list>
         </md-sidenav>
 
-        <md-content flex id="content">
+        <md-content flex id="content" layout-align="center center">
           <md-icon md-svg-icon="{{ul.selected.avatar}}" class="avatar"></md-icon>
           <h2>{{ul.selected.name}}</h2>
           <p>{{ul.selected.content}}</p>
+          <div vc-recaptcha
+            on-create ="ul.recaptchaSetWidgetId(widgetId)"
+            on-success="ul.recaptchaSubmit(response)"
+            on-expire ="ul.recaptchaReload()"></div>
         </md-content>
 
     </div>
@@ -61,6 +64,10 @@
     <script src="../node_modules/angular-animate/angular-animate.js"></script>
     <script src="../node_modules/angular-aria/angular-aria.js"></script>
     <script type="text/javascript" src="../node_modules/angular-material/angular-material.js"></script>
+    <!-- Include the JS ReCaptcha API -->
+    <script src="//www.google.com/recaptcha/api.js?render=explicit&onload=vcRecaptchaApiLoaded" async defer></script>
+    <!-- Include the ngReCaptcha directive -->
+    <script src="../node_modules/angular-recaptcha/release/angular-recaptcha.js"></script>
 
     <script src="./src/candidates/Candidates.js"></script>
     <script src="./src/candidates/CandidateController.js"></script>
@@ -69,9 +76,13 @@
     <script type="text/javascript">
 
           angular
-              .module('starterApp', ['ngMaterial', 'candidates'])
+              .module('starterApp', ['ngMaterial', 'vcRecaptcha', 'candidates'])
+              .config(function(vcRecaptchaServiceProvider){
+                  vcRecaptchaServiceProvider.setDefaults({
+                    key: '6LfbxwYUAAAAAGXadtJcjlxvHmkkzcQSHXFB62kI',
+                  });
+              })
               .config(function($mdThemingProvider, $mdIconProvider){
-
                   $mdIconProvider
                       .defaultIconSet("./assets/svg/avatars.svg", 128)
                       .icon("menu", "./assets/svg/menu.svg"        , 24)
