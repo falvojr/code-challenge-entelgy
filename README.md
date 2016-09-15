@@ -20,7 +20,7 @@ As seções com link (FrontEnd, BackEnd e Comentários) levam a uma nova Markdow
 
 ### [Comentários](COMMENTS.md) ###
 
-* Seção destinada a comentários relacionados às decisões e trabalhos futuros.
+* Seção destinada a comentários relacionados às decisões de projeto e trabalhos futuros.
 
 ### Contato ###
 
