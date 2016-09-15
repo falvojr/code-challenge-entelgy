@@ -9,15 +9,13 @@ Primeiramente, clone o repositório do projeto via [`git`](http://git-scm.com):
 
 ## Dependências ##
 
-Todas as dependências são geridas via [`npm`](npm). 
+Todas as dependências são geridas via [`npm`](https://www.npmjs.org). 
 
 ```
 npm install
 ```
 
-O comando acima deve gerar uma nova pasta em seu projeto:
-
-* node_modules - contém os pacotes NPM para das dependências do projeto
+*O comando acima deve gerar a pasta node_modules, que contém os pacotes NPM para das dependências do projeto.*
 
 ## Estrutura ##
 
@@ -32,11 +30,8 @@ app/                    --> todo o código-fonte da aplicação
 
 ## Execução ##
 
-O projeto vem pre-configurado com um servidor web de desenvolvimento local. É uma ferramenta node.js chamada [`live-server`] [live-server].
+O projeto vem pre-configurado com um servidor web de desenvolvimento local. É uma ferramenta node.js chamada [`live-server`] [https://www.npmjs.com/package/live-server].
 
 ```
  node ./node_modules/live-server/live-server.js . --open=app
 ```
-
-[npm]: https://www.npmjs.org/
-[live-server]: https://www.npmjs.com/package/live-server
