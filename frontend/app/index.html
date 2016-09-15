@@ -41,7 +41,7 @@
           <md-list>
             <md-list-item ng-repeat="it in ul.candidates">
                 <md-button ng-click="ul.selectCandidate(it)" ng-class="{'selected' : it === ul.selected }">
-                  <md-icon md-svg-icon="{{it.avatar}}" class="avatar"></md-icon>
+                  <md-icon md-svg-icon="{{it.photo}}" class="avatar"></md-icon>
                   {{it.name}}
                 </md-button>
             </md-list-item>
@@ -49,9 +49,9 @@
         </md-sidenav>
 
         <md-content flex id="content" layout-align="center center">
-          <md-icon md-svg-icon="{{ul.selected.avatar}}" class="avatar"></md-icon>
+          <md-icon md-svg-icon="{{ul.selected.photo}}" class="avatar"></md-icon>
           <h2>{{ul.selected.name}}</h2>
-          <p>{{ul.selected.content}}</p>
+          <p>{{ul.selected.overview}}</p>
           <div vc-recaptcha
             on-create ="ul.recaptchaSetWidgetId(widgetId)"
             on-success="ul.recaptchaSubmit(response)"
@@ -84,7 +84,7 @@
               })
               .config(function($mdThemingProvider, $mdIconProvider){
                   $mdIconProvider
-                      .defaultIconSet("./assets/svg/avatars.svg", 128)
+                      .defaultIconSet("./assets/svg/photos.svg", 128)
                       .icon("menu", "./assets/svg/menu.svg"        , 24)
 
                       $mdThemingProvider.theme('default')

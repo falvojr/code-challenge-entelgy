@@ -8,26 +8,44 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * 
  * @author falvojr
  */
-@Document
+@Document(collection = "candidates")
 public class Candidate {
 	@Id
 	private String id;
-	private String firstName;
-	private String lastName;
+	private String name;
+	private String photo;
+	private String overview;
 
-	public String getFirstName() {
-		return this.firstName;
+	public String getId() {
+		return id;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setId(String id) {
+		this.id = id;
 	}
 
-	public String getLastName() {
-		return this.lastName;
+	public String getName() {
+		return name;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setName(String name) {
+		this.name = name;
 	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
+	public String getOverview() {
+		return overview;
+	}
+
+	public void setOverview(String overview) {
+		this.overview = overview;
+	}
+
 }

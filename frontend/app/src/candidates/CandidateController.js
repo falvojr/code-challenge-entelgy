@@ -8,9 +8,14 @@
        ]);
 
   /**
-   * Main Controller for the Angular Material Starter App
+   * Candidate Controller for the Angular App.
+
+   * @param candidateService
+   * @param vcRecaptchaService
    * @param $mdSidenav
-   * @param avatarsService
+   * @param $mdBottomSheet
+   * @param $timeout
+   * @param $$log
    * @constructor
    */
   function CandidateController( candidateService, vcRecaptchaService, $mdSidenav, $mdBottomSheet, $timeout, $log ) {
