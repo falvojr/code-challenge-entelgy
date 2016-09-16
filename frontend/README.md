@@ -1,15 +1,19 @@
 # Frontend #
 
-Primeiramente, clone o repositório do projeto via [`git`](http://git-scm.com) e acesse o diretório de frontend:
+Primeiramente, clone o repositório do projeto via Git e acesse o diretório de `frontend`:
 
+#### SSH ####
 ```
-git clone git@bitbucket.org:falvojr/entelgy-challenge.git
-cd frontend
+git clone git@bitbucket.org:falvojr/entelgy-challenge.git && cd frontend
+```
+#### HTTPS ####
+```
+git clone https://falvojr@bitbucket.org/falvojr/entelgy-challenge.git && cd frontend
 ```
 
 ## Estrutura ##
 
-O projeto possui a seguinte estrutura de pastas
+Em termos estruturais, o frontend foi estruturado da seguinte maneira:
 
 ```
 app/                    --> todo o código-fonte da aplicação.
@@ -36,21 +40,20 @@ npm install npm -g
 
 ## Dependências ##
 
-Instale as dependências do projeto via [`npm`](https://github.com/npm/npm).
-Isso instalará o AngularJS, Angular Material e todas as ferramentas definidas no arquivo `package.json`: 
+Com o Node.js e NPM devidamente instalados, basta executar o comando a seguir para baixar as dependências definidas no arquivo `package.json`: 
 
 ```
 npm install
 ```
 
-*O comando acima deve gerar a pasta node_modules, que contém os pacotes NPM para das dependências do projeto.*
+*O comando irá gerar a pasta node_modules, que armazenará todas as dependências do projeto.*
 
 ## Execução ##
 
-O projeto vem preconfigurado com um pequeno servidor web, uma ferramenta Node.js chamada [`live-server`](https://github.com/tapio/live-server).
+Para auxiliar na execução, o projeto vem preconfigurado com um pequeno servidor web, uma ferramenta Node.js chamada [`live-server`](https://github.com/tapio/live-server).
 
 ```
 node ./node_modules/live-server/live-server.js . --open=app
 ```
 
-*O comando acima deve servir a aplicação localmente e abrir o browser padrão no endereço da aplicação.*
+*O comando acima irá subir a aplicação localmente e abrir o browser no endereço da aplicação.*
