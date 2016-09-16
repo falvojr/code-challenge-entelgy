@@ -17,7 +17,7 @@ As seções com link (FrontEnd, BackEnd e Comentários) levam a uma nova Markdow
 * [AngularJS](https://github.com/angular/angular.js): Framework JavaScript, criado pelo Google, no estilo MVC e aderente ao conceito de SPA (Single Page Application). Além disso, provê extensões significativas para o HTML;
 * [Angular Material](https://github.com/angular/material): Framework de UI para Angular e implementação de referência da especificação Google Material Design;
 * [reCAPTCHA](https://www.google.com/recaptcha): Ferramenta do Google contra spammers e bots. O reCAPTCHA usa uma engine de análise de risco avançada e CAPTCHAs adaptativos para manter-se atento a atividades abusivas ou suspeitas;
-* [NPM](https://github.com/npm/npm): Flexível gerenciador de pacotes, builds e dependências em [Node.js](https://github.com/nodejs/node), sigla de Node Package Manager.
+* [NPM](https://github.com/npm/npm): Node Package Manager, um flexível gerenciador de pacotes, builds e dependências feito em [Node.js](https://github.com/nodejs/node).
 
 ### [Comentários](COMMENTS.md) ###
 
