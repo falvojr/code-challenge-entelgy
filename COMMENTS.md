@@ -28,4 +28,6 @@ Tais escolhas para o frontend se devem a duas coisas:
 
 ## Ecoluções ##
 
-#### Make file ####
+* Make file
+* ECS6
+* i18n
