@@ -9,14 +9,29 @@ cd frontend
 
 ## Estrutura ##
 
+O projeto possui a seguinte estrutura de pastas
+
 ```
-app/                    --> todo o código-fonte da aplicação
-  assets/app.css        --> arquivo de estilo padrão (com as customizações necessárias no Angular Material)
-  src/                  --> módulos da aplicação
-     candidates/        --> pacote com os recursos do domínio de candidatos
-	 votes/             --> pacote com os recursos do domínio de votos
-  index.html            --> layout da aplicação (template HTML)
+app/                    --> todo o código-fonte da aplicação.
+  assets/app.css        --> arquivo de estilo padrão, com apenas algumas customizações de estilos.
+  src/                  --> módulos da aplicação.
+     candidates/        --> pacote com os recursos do domínio de candidatos.
+  templates/            --> pacote com templates HTML.
+  index.html            --> página principal da nossa SPA (Single Page Application).
 package.json            --> descreve o projeto, informando a url do repositório, versão, dependências, dentre outras coisas.
+```
+
+## Pré-Requisitos ##
+
+### Node.js ###
+```
+curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+### NPM ###
+
+```
+npm install npm -g
 ```
 
 ## Dependências ##
