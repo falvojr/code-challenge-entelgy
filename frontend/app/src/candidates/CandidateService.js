@@ -4,7 +4,7 @@
   angular.module('candidates')
          .factory('candidateService', candidateService);
 
-candidateService.$inject = ['$http', '$log'];
+candidateService.$inject = ['$http', '$log', 'ENV'];
 
   /**
    * Candidates data service.
@@ -14,7 +14,7 @@ candidateService.$inject = ['$http', '$log'];
    * @returns {{getCandidates: Function}}
    * @constructor
    */
-  function candidateService($http, $log){
+  function candidateService($http, $log, ENV){
     var service = {
         getCandidates: getCandidates
     };
@@ -24,7 +24,7 @@ candidateService.$inject = ['$http', '$log'];
     ////////////
 
     function getCandidates() {
-      return $http.get('http://localhost:8080/candidates')
+      return $http.get(ENV.API_HOST + '/candidates')
                   .then(getCandidatesComplete)
                   .catch(getCandidatesFailed);
 

@@ -94,6 +94,9 @@
                       .defaultIconSet("./assets/svg/avatars.svg", 128)
                       .icon("menu", "./assets/svg/menu.svg", 24);
                   $mdThemingProvider.theme('default');
+              })
+              .constant('ENV', {
+                  'API_HOST': 'http://localhost:8080',
               });
 
     </script>

@@ -4,7 +4,7 @@
        .module('candidates')
        .controller('CandidateController', CandidateController);
 
-CandidateController.$inject = ['candidateService', 'vcRecaptchaService', '$mdSidenav', '$log'];
+CandidateController.$inject = ['candidateService', 'vcRecaptchaService', '$mdSidenav', '$mdToast', '$log'];
 
   /**
    * Candidate Controller for the Angular App.
@@ -15,7 +15,7 @@ CandidateController.$inject = ['candidateService', 'vcRecaptchaService', '$mdSid
    * @param $log
    * @constructor
    */
-  function CandidateController(candidateService, vcRecaptchaService, $mdSidenav, $log) {
+  function CandidateController(candidateService, vcRecaptchaService, $mdSidenav, $mdToast, $log) {
     var vm = this;
 
     vm.selected             = null;
@@ -41,6 +41,13 @@ CandidateController.$inject = ['candidateService', 'vcRecaptchaService', '$mdSid
             .then(function(candidates) {
               vm.candidates = candidates;
               vm.selected = candidates[0];
+            })
+            .catch(function () {
+              $mdToast.show(
+                $mdToast.simple()
+                  .textContent('Falha ao buscar os candidatos!')
+                  .hideDelay(3000)
+              );
             });
     }
 
@@ -49,6 +56,9 @@ CandidateController.$inject = ['candidateService', 'vcRecaptchaService', '$mdSid
      */
     function toggleCandidatesList() {
       $mdSidenav('left').toggle();
+      if (vm.widgetId != null) {
+        recaptchaReload();
+      }
     }
 
     function selectCandidate (candidate) {
@@ -56,17 +66,17 @@ CandidateController.$inject = ['candidateService', 'vcRecaptchaService', '$mdSid
     }
 
     function recaptchaSetWidgetId(widgetId) {
-        console.info('Created widget ID: %s', widgetId);
+        $log.info('Created widget ID: %s', widgetId);
         vm.widgetId = widgetId;
     }
 
     function recaptchaSubmit(response) {
-      console.info('Response available');
+      $log.info('Response available');
       vm.recaptchaResponse = response;
     }
 
     function recaptchaReload() {
-      console.info('Captcha expired. Resetting response object');
+      $log.info('Captcha expired. Resetting response object');
       vcRecaptchaService.reload(self.widgetId);
       vm.recaptchaResponse = null;
     };
