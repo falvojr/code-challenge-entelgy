@@ -27,12 +27,12 @@ package.json            --> descreve o projeto, informando a url do repositório
 
 ## Pré-Requisitos ##
 
-#### Node.js ####
+#### Node.js: ####
 ```
 curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
-#### NPM ####
+#### NPM: ####
 
 ```
 npm install npm -g
@@ -50,7 +50,7 @@ npm install
 
 ## Execução ##
 
-Para auxiliar na execução, o projeto vem preconfigurado com um pequeno servidor web, uma ferramenta Node.js chamada [`live-server`](https://github.com/tapio/live-server).
+Para auxiliar na execução, o projeto vem preconfigurado com um pequeno servidor web, uma ferramenta Node.js chamada [`live-server`](https://github.com/tapio/live-server):
 
 ```
 node ./node_modules/live-server/live-server.js . --open=app
