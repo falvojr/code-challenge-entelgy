@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import br.com.entelgy.model.Candidate;
 
 /**
- * REST resource with custom end-point.
+ * REST controller with custom end-point.
  * 
  * @author falvojr
  */
@@ -26,7 +26,7 @@ public class CadidateRestController {
 	private static final String KEY_DATA = "data";
 
 	@Autowired
-	private CandidateRepository candidateRepository;
+	private CandidateRestResource candidateRepository;
 
 	@RequestMapping(value = "/candidates/summary", method = RequestMethod.GET)
 	public ResponseEntity<Map<String, List<Object>>> getCandidatesSummary() {

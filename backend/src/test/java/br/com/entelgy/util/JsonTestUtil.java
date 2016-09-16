@@ -13,7 +13,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * 
  * @author falvojr
  */
-public class JacksonTestUtil {
+public class JsonTestUtil {
 
 	public static final MediaType APPLICATION_JSON_UTF8 = new MediaType(
 			MediaType.APPLICATION_JSON.getType(), 
@@ -21,7 +21,7 @@ public class JacksonTestUtil {
 			StandardCharsets.UTF_8
 	);
 
-	private JacksonTestUtil() {
+	private JsonTestUtil() {
 		super();
 	}
 	

@@ -1,6 +1,5 @@
 package br.com.entelgy;
 
-import static br.com.entelgy.util.JacksonTestUtil.convertObjectToJsonString;
 import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -24,7 +23,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
 import br.com.entelgy.model.Candidate;
-import br.com.entelgy.model.rest.CandidateRepository;
+import br.com.entelgy.model.rest.CandidateRestResource;
+import br.com.entelgy.util.JsonTestUtil;
 import br.com.entelgy.util.StringTestUtil;
 
 /**
@@ -41,12 +41,12 @@ public class CandidateTests {
 	private MockMvc mockMvc;
 
 	@Autowired
-	private CandidateRepository candidatesRepository;
+	private CandidateRestResource candidatesRepository;
 
 	@After
 	public void deleteAllAfterTest() throws Exception {
 		//TODO Comment the following line to keep the test data.
-		candidatesRepository.deleteAll();
+		//candidatesRepository.deleteAll();
 	}
 
 	/**
@@ -64,7 +64,7 @@ public class CandidateTests {
 	 */
 	@Test
 	public void shouldCreateEntity() throws Exception {
-		final String jsonContent = convertObjectToJsonString(mock());
+		final String jsonContent = JsonTestUtil.convertObjectToJsonString(mock());
 		mockMvc.perform(post("/candidates").content(jsonContent))
 				.andExpect(status().isCreated())
 				.andExpect(header().string("Location", containsString("candidates/")));
@@ -76,7 +76,7 @@ public class CandidateTests {
 	@Test
 	public void shouldUpdateEntity() throws Exception {
 		final Candidate candidate = mock();
-		final MvcResult mvcResult = mockMvc.perform(post("/candidates").content(convertObjectToJsonString(candidate)))
+		final MvcResult mvcResult = mockMvc.perform(post("/candidates").content(JsonTestUtil.convertObjectToJsonString(candidate)))
 				.andExpect(status().isCreated())
 				.andReturn();
 		
@@ -88,7 +88,7 @@ public class CandidateTests {
 		candidate.setAvatar(photo);
 		
 		final String location = mvcResult.getResponse().getHeader("Location");
-		mockMvc.perform(put(location).content(convertObjectToJsonString(candidate)))
+		mockMvc.perform(put(location).content(JsonTestUtil.convertObjectToJsonString(candidate)))
 				.andExpect(status().isNoContent());
 
 		mockMvc.perform(get(location)).andExpect(status().isOk())
@@ -102,7 +102,7 @@ public class CandidateTests {
 	 */
 	@Test
 	public void shouldPartiallyUpdateEntity() throws Exception {
-		final MvcResult mvcResult = mockMvc.perform(post("/candidates").content(convertObjectToJsonString(mock())))
+		final MvcResult mvcResult = mockMvc.perform(post("/candidates").content(JsonTestUtil.convertObjectToJsonString(mock())))
 				.andExpect(status().isCreated())
 				.andReturn();
 		
@@ -114,7 +114,7 @@ public class CandidateTests {
 
 		String location = mvcResult.getResponse().getHeader("Location");
 
-		mockMvc.perform(patch(location).content(convertObjectToJsonString(candidate)))
+		mockMvc.perform(patch(location).content(JsonTestUtil.convertObjectToJsonString(candidate)))
 				.andExpect(status().isNoContent());
 
 		mockMvc.perform(get(location))
@@ -127,7 +127,7 @@ public class CandidateTests {
 	 */
 	@Test
 	public void shouldDeleteEntity() throws Exception {
-		final String jsonContent = convertObjectToJsonString(mock());
+		final String jsonContent = JsonTestUtil.convertObjectToJsonString(mock());
 		final MvcResult mvcResult = mockMvc.perform(post("/candidates").content(jsonContent))
 				.andExpect(status().isCreated())
 				.andReturn();

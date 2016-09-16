@@ -12,6 +12,6 @@ import br.com.entelgy.model.Candidate;
  * @author falvojr
  */
 @RepositoryRestResource(collectionResourceRel = "candidates", path = "candidates")
-public interface CandidateRepository extends MongoRepository<Candidate, ObjectId> {
+public interface CandidateRestResource extends MongoRepository<Candidate, ObjectId> {
 
 }

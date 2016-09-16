@@ -26,7 +26,7 @@ candidateService.$inject = ['$http', '$log', 'ENV'];
     ////////////
 
     function getCandidates() {
-      return $http.get(ENV.API_HOST + '/candidates')
+      return $http.get(ENV.API_HOST + '/candidates?sort=name')
         .then(getCandidatesComplete);
 
       function getCandidatesComplete(response) {

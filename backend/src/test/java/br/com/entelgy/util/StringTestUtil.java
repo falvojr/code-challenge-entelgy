@@ -9,6 +9,9 @@ import java.security.SecureRandom;
  */
 public class StringTestUtil {
 
+	/**
+	 * Multiples spaces for increase your chances.
+	 */
 	private static final String SYMBOLS = "01234 56789 ABCDE FGHIJ KLMNO PQRST UVWXY Zabcd efghi jklmn opqrs tuvwx yz";
 	private static final SecureRandom SECURE_RANDOM = new SecureRandom();
 
