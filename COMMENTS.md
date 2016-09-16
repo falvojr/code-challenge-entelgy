@@ -24,7 +24,7 @@ Assim, as aplicações (backend e frontend) podems e comunicar mesmo em domínios d
 Tais escolhas para o frontend se devem a duas coisas:
 
 1. O Angulat Material é uma implementação de referência do Google Material Design, talves um dos padrões mais difundidos atualmente. Além disso, é totalmente responsivo e aderente ao conceito de Mobile First;
-2. Já o Angular utilizei porque tenho boa familiaridade com o framework e isso me ajudou em termos de produtividade.
+2. Já o Angular utilizei porque tenho boa familiaridade com o framework e isso me ajudou em termos de produtividade. Apesar da versão 2 já estar disponível a algum tempo, a migração é significativamente complexa. De qualquer forma, todo código implementado seguiu os guidelines do renomado [John Papa](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md).
 
 ## TODO ##
 
