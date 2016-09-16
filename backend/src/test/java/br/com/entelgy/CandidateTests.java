@@ -54,7 +54,9 @@ public class CandidateTests {
 	 */
 	@Test
 	public void shouldReturnRepositoryIndex() throws Exception {
-		mockMvc.perform(get("/")).andExpect(status().isOk()).andExpect(jsonPath("$._links.candidates").exists());
+		mockMvc.perform(get("/"))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$._links.candidates").exists());
 	}
 
 	/**
@@ -63,7 +65,8 @@ public class CandidateTests {
 	@Test
 	public void shouldCreateEntity() throws Exception {
 		final String jsonContent = JsonTestUtil.convertObjectToJsonString(mock());
-		mockMvc.perform(post("/candidates").content(jsonContent)).andExpect(status().isCreated())
+		mockMvc.perform(post("/candidates").content(jsonContent))
+				.andExpect(status().isCreated())
 				.andExpect(header().string("Location", containsString("candidates/")));
 	}
 
@@ -73,9 +76,9 @@ public class CandidateTests {
 	@Test
 	public void shouldUpdateEntity() throws Exception {
 		final Candidate candidate = mock();
-		final MvcResult mvcResult = mockMvc
-				.perform(post("/candidates").content(JsonTestUtil.convertObjectToJsonString(candidate)))
-				.andExpect(status().isCreated()).andReturn();
+		final MvcResult mvcResult = mockMvc.perform(post("/candidates").content(JsonTestUtil.convertObjectToJsonString(candidate)))
+				.andExpect(status().isCreated())
+				.andReturn();
 
 		final String name = "Barack";
 		final String overview = "Yes we can!";
@@ -88,7 +91,8 @@ public class CandidateTests {
 		mockMvc.perform(put(location).content(JsonTestUtil.convertObjectToJsonString(candidate)))
 				.andExpect(status().isNoContent());
 
-		mockMvc.perform(get(location)).andExpect(status().isOk()).andExpect(jsonPath("$.name").value(name))
+		mockMvc.perform(get(location)).andExpect(status().isOk())
+				.andExpect(jsonPath("$.name").value(name))
 				.andExpect(jsonPath("$.overview").value(overview)).andExpect(jsonPath("$.avatar").value(photo));
 	}
 
@@ -122,14 +126,28 @@ public class CandidateTests {
 	public void shouldDeleteEntity() throws Exception {
 		final String jsonContent = JsonTestUtil.convertObjectToJsonString(mock());
 		final MvcResult mvcResult = mockMvc.perform(post("/candidates").content(jsonContent))
-				.andExpect(status().isCreated()).andReturn();
+				.andExpect(status().isCreated())
+				.andReturn();
 
 		final String location = mvcResult.getResponse().getHeader("Location");
-		mockMvc.perform(delete(location)).andExpect(status().isNoContent());
+		mockMvc.perform(delete(location))
+				.andExpect(status().isNoContent());
 
-		mockMvc.perform(get(location)).andExpect(status().isNotFound());
+		mockMvc.perform(get(location))
+				.andExpect(status().isNotFound());
 	}
 
+	/**
+	 * Custom REST service for Chart.
+	 */
+	@Test
+	public void shouldReturnChartData() throws Exception {
+		mockMvc.perform(get("/candidates/summary"))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$.labels").exists())
+				.andExpect(jsonPath("$.data").exists());
+	}
+	
 	/**
 	 * Create a new mock for {@link Candidate} class.
 	 * 

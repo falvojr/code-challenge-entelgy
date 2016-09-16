@@ -13,7 +13,7 @@ import org.springframework.web.filter.CorsFilter;
  * @author falvojr
  */
 @Configuration
-public class RepositoryConfig {
+public class RestConfig {
 
     @Bean
     public CorsFilter corsFilter() {
