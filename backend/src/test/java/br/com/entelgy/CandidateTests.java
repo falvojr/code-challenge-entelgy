@@ -44,9 +44,9 @@ public class CandidateTests {
 	private CandidateRepository candidatesRepository;
 
 	@After
-	public void deleteAllAfterTests() throws Exception {
-		//XXX Comment the following line to keep the test data.
-		//candidatesRepository.deleteAll();
+	public void deleteAllAfterTest() throws Exception {
+		//TODO Comment the following line to keep the test data.
+		candidatesRepository.deleteAll();
 	}
 
 	/**
@@ -82,7 +82,7 @@ public class CandidateTests {
 		
 		final String name = "Barack";
 		final String overview = "Yes we can!";
-		final String photo = "svg-2";
+		final String photo = "svg-4";
 		candidate.setName(name);
 		candidate.setOverview(overview);
 		candidate.setAvatar(photo);
@@ -102,13 +102,15 @@ public class CandidateTests {
 	 */
 	@Test
 	public void shouldPartiallyUpdateEntity() throws Exception {
-		final Candidate candidate = mock();
-		final MvcResult mvcResult = mockMvc.perform(post("/candidates").content(convertObjectToJsonString(candidate)))
+		final MvcResult mvcResult = mockMvc.perform(post("/candidates").content(convertObjectToJsonString(mock())))
 				.andExpect(status().isCreated())
 				.andReturn();
 		
+		final Candidate candidate = new Candidate();
 		final String name = "Bear";
+		final String photo = "svg-5";
 		candidate.setName(name);
+		candidate.setAvatar(photo);
 
 		String location = mvcResult.getResponse().getHeader("Location");
 
