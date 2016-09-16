@@ -26,7 +26,7 @@ build.gradle       --> descreve o projeto, provendo um poderoso mecanismo de bui
 
 #### Java 8+ ####
 
-#### Gradle ####
+#### Gradle: ####
 
 ```
 curl -s https://get.sdkman.io | bash
