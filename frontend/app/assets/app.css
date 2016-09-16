@@ -16,14 +16,9 @@ html, body {
   width: 36px;
 }
 
-
 md-toolbar h3 {
   margin: auto;
   font-weight: 500;
-}
-
-md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar) {
-    background-color: rgb(15, 155, 174) !important;
 }
 
 /* Sidenav area */

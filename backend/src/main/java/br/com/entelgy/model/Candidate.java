@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
@@ -14,12 +15,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
  */
 @Document(collection = "candidates")
 public class Candidate {
-	
+
 	@Id
 	private ObjectId id;
 	private String name;
-	private String photo;
+	private String avatar;
 	private String overview;
+	@Indexed
 	private List<Vote> votes = new ArrayList<>();
 
 	public ObjectId getId() {
@@ -38,12 +40,12 @@ public class Candidate {
 		this.name = name;
 	}
 
-	public String getPhoto() {
-		return photo;
+	public String getAvatar() {
+		return avatar;
 	}
 
-	public void setPhoto(String photo) {
-		this.photo = photo;
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
 	}
 
 	public String getOverview() {

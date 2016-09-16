@@ -9,7 +9,7 @@ import java.security.SecureRandom;
  */
 public class StringTestUtil {
 
-	private static final String SYMBOLS = "0123456789 ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz";
+	private static final String SYMBOLS = "01234 56789 ABCDE FGHIJ KLMNO PQRST UVWXY Zabcd efghi jklmn opqrs tuvwx yz";
 	private static final SecureRandom SECURE_RANDOM = new SecureRandom();
 
 	private StringTestUtil() {

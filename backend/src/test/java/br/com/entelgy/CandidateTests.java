@@ -44,8 +44,9 @@ public class CandidateTests {
 	private CandidateRepository candidatesRepository;
 
 	@After
-	public void deleteAllBeforeTests() throws Exception {
-		candidatesRepository.deleteAll();
+	public void deleteAllAfterTests() throws Exception {
+		//XXX Comment the following line to keep the test data.
+		//candidatesRepository.deleteAll();
 	}
 
 	/**
@@ -81,10 +82,10 @@ public class CandidateTests {
 		
 		final String name = "Barack";
 		final String overview = "Yes we can!";
-		final String photo = "http://www.nocturnar.com/comunidad/attachments/obama-not-bad-campaign-poster-jpg.59235";
+		final String photo = "svg-2";
 		candidate.setName(name);
 		candidate.setOverview(overview);
-		candidate.setPhoto(photo);
+		candidate.setAvatar(photo);
 		
 		final String location = mvcResult.getResponse().getHeader("Location");
 		mockMvc.perform(put(location).content(convertObjectToJsonString(candidate)))
@@ -93,7 +94,7 @@ public class CandidateTests {
 		mockMvc.perform(get(location)).andExpect(status().isOk())
 				.andExpect(jsonPath("$.name").value(name))
 				.andExpect(jsonPath("$.overview").value(overview))
-				.andExpect(jsonPath("$.photo").value(photo));
+				.andExpect(jsonPath("$.avatar").value(photo));
 	}
 
 	/**
@@ -146,7 +147,7 @@ public class CandidateTests {
 		final Candidate candidate = new Candidate();
 		candidate.setName(StringTestUtil.randomString(15));
 		candidate.setOverview(StringTestUtil.randomString(500));
-		candidate.setPhoto("https://freeiconshop.com/files/edd/person-flat.png");
+		candidate.setAvatar("svg-1");
 		return candidate;
 	}
 }

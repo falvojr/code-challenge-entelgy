@@ -22,40 +22,47 @@
     </style>
   </head>
 
-  <body ng-app="starterApp" layout="column" ng-controller="CandidateController as ul" ng-cloak>
+  <body ng-app="entelgyApp" layout="column" ng-controller="CandidateController as candidateVm" ng-cloak>
 
     <md-toolbar class="md-hue-2" layout="row">
       <div class="md-toolbar-tools">
-        <md-button class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show Candidate List">
+        <md-button class="menu" hide-gt-sm ng-click="candidateVm.toggleList()" aria-label="Show Candidate List"  ng-show="candidateVm.candidates">
           <md-icon md-svg-icon="menu" ></md-icon>
         </md-button>
-        <h2>
+        <h1>
           <span>Code Challenge Entelgy</span>
-        </h2>
+        </h1>
       </div>
     </md-toolbar>
 
-    <div flex layout="row">
+    <div flex layout="column" layout-align="center center" ng-show="!candidateVm.candidates">
+        <h1>Nenhum candidato encontrado :(</h1>
+        <h1>Por favor, siga as instruções da seção <a href="https://bitbucket.org/falvojr/entelgy-challenge">BackEnd</a>.</h1>
+    </div>
 
-        <md-sidenav  ng-click="ul.toggleList()" md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-whiteframe-z2" >
+    <div flex layout="row" ng-show="candidateVm.candidates">
+
+        <md-sidenav  ng-click="candidateVm.toggleList()" md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-whiteframe-z2" >
           <md-list>
-            <md-list-item ng-repeat="it in ul.candidates">
-                <md-button ng-click="ul.selectCandidate(it)" ng-class="{'selected' : it === ul.selected }">
-                  <md-icon md-svg-icon="{{it.photo}}" class="avatar"></md-icon>
+            <md-list-item ng-repeat="it in candidateVm.candidates">
+                <md-button ng-click="candidateVm.selectCandidate(it)" ng-class="{'selected' : it === candidateVm.selected }">
+                  <md-icon md-svg-icon="{{it.avatar}}" class="avatar"></md-icon>
                   {{it.name}}
                 </md-button>
             </md-list-item>
           </md-list>
         </md-sidenav>
 
-        <md-content flex id="content" layout-align="center center">
-          <md-icon md-svg-icon="{{ul.selected.photo}}" class="avatar"></md-icon>
-          <h2>{{ul.selected.name}}</h2>
-          <p>{{ul.selected.overview}}</p>
+        <md-content flex layout="column" id="content" layout-align="none center">
+          <md-icon md-svg-icon="{{candidateVm.selected.avatar}}" class="avatar"></md-icon>
+          <h1>{{candidateVm.selected.name}}</h1>
+          <p>{{candidateVm.selected.overview}}</p>
           <div vc-recaptcha
-            on-create ="ul.recaptchaSetWidgetId(widgetId)"
-            on-success="ul.recaptchaSubmit(response)"
-            on-expire ="ul.recaptchaReload()"></div>
+            on-create ="candidateVm.recaptchaSetWidgetId(widgetId)"
+            on-success="candidateVm.recaptchaSubmit(response)"
+            on-expire ="candidateVm.recaptchaReload()">
+          </div>
+          <md-button ng-disabled="!candidateVm.recaptchaResponse" class="md-raised md-primary">Vote</md-button>
         </md-content>
 
     </div>
@@ -76,7 +83,7 @@
     <script type="text/javascript">
 
           angular
-              .module('starterApp', ['ngMaterial', 'vcRecaptcha', 'candidates'])
+              .module('entelgyApp', ['ngMaterial', 'vcRecaptcha', 'candidates'])
               .config(function(vcRecaptchaServiceProvider){
                   vcRecaptchaServiceProvider.setDefaults({
                     key: '6LfbxwYUAAAAAGXadtJcjlxvHmkkzcQSHXFB62kI',
@@ -84,12 +91,9 @@
               })
               .config(function($mdThemingProvider, $mdIconProvider){
                   $mdIconProvider
-                      .defaultIconSet("./assets/svg/photos.svg", 128)
-                      .icon("menu", "./assets/svg/menu.svg"        , 24)
-
-                      $mdThemingProvider.theme('default')
-                          .primaryPalette('brown')
-                          .accentPalette('red');
+                      .defaultIconSet("./assets/svg/avatars.svg", 128)
+                      .icon("menu", "./assets/svg/menu.svg", 24);
+                  $mdThemingProvider.theme('default');
               });
 
     </script>
