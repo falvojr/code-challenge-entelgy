@@ -30,6 +30,6 @@ Tais escolhas para o frontend se devem a duas coisas:
 
 Como evoluções futuras, pensei nos seguintes itens:
 
-* *Makefile*: arquivo com scripts organizados de modo a facilitar os testes e implantação do projeto; 
-* *ECS6*: migrar todo o frontend para o ECMAScript 6, mesmo que para isso fosse necessário utilizar um compilador/tradutor como o [Babel](https://github.com/babel/babel/). Pois a nova versão dessa especificação traz melhorias fantásticas para o JavaScript;
-* *i18n*: criar um mecanismo de internacionalização no front e também banckend.
+* **Makefile**: arquivo com scripts organizados de modo a facilitar os testes e implantação do projeto; 
+* **ECS6**: migrar todo o frontend para o ECMAScript 6, mesmo que para isso fosse necessário utilizar um compilador/tradutor como o [Babel](https://github.com/babel/babel/). Pois a nova versão dessa especificação traz melhorias fantásticas para o JavaScript;
+* **i18n**: criar um mecanismo de internacionalização no front e também banckend.
