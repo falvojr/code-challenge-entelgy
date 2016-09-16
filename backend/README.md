@@ -42,4 +42,4 @@ gradle bootRun
 ```
 
 *O comando acima irá subir nossa API REST e com o isso o frontend poderá consumí-la.*  
-*Nota: no Ubuntu 16.04 o script em questão é finalizado com sucesso, mas o terminal apresenta `> Building 80% > :bootRun`. Quando isso acontecer, pode subir o frontend ou testar a API via browser que ela estará disponível.*
+*Nota: no Ubuntu 16.04 o script em questão é finalizado com sucesso, mas o terminal apresenta `> Building 80% > :bootRun`. Entretanto, isso não impacta no acesso à API, que já estará disponível.*
