@@ -16,7 +16,7 @@ Caso queira utilizar o MongoDB localmente, basta alterar a constante `MONGODB_CL
 
 ## CORS Filter ##
 
-Devido à estrutura atual dos projeto, tive de permitir acesso aos métodos GET e PATH em meu CORS Filter. 
+Devido à estrutura atual dos projeto, tive de permitir acesso aos métodos GET e PATH em meu CORS Filter na classe `RestConfig.java`. 
 Assim, as aplicações (backend e frontend) podems e comunicar mesmo em domínios diferentes.
 
 ## Ecoluções ##
