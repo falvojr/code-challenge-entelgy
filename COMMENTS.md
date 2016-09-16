@@ -10,6 +10,10 @@ Em termos praticos o Node.js deu lugar ao Java e o ExpressJS ao Spring.
 
 ##MongoDB##
 
+Com relação ao banco de dados, optei por um NoSQL pois o domínio da aplicação não exigia relacionamentos fortes entre as entidades. 
+Com isso, pude obter um ganho considerável de performance mesmo utilizando uma instância remota free no [mLab](https://mlab.com). 
+
+
 ##CROS Domain##
 
 ##Make file##
