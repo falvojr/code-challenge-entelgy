@@ -54,5 +54,4 @@ Para rodar os testes unitários basta executar o seguinte comando:
 gradle build
 ```
 
-*ATENÇÃO: a classe de testes está configurada para excluir todo o banco de dados após a sua execução.
-Por isso, caso queira mantê-los, basta comentar a linha abaixo do **TODO** *
+* ATENÇÃO: a classe de testes está configurada para excluir todo o banco de dados após a sua execução. Por isso, caso queira mantê-los, basta comentar a linha abaixo do **TODO** *
