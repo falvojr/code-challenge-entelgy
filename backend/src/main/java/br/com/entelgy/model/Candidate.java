@@ -1,5 +1,9 @@
 package br.com.entelgy.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -10,17 +14,19 @@ import org.springframework.data.mongodb.core.mapping.Document;
  */
 @Document(collection = "candidates")
 public class Candidate {
+	
 	@Id
-	private String id;
+	private ObjectId id;
 	private String name;
 	private String photo;
 	private String overview;
+	private List<Vote> votes = new ArrayList<>();
 
-	public String getId() {
+	public ObjectId getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(ObjectId id) {
 		this.id = id;
 	}
 
@@ -46,6 +52,14 @@ public class Candidate {
 
 	public void setOverview(String overview) {
 		this.overview = overview;
+	}
+
+	public List<Vote> getVotes() {
+		return votes;
+	}
+
+	public void setVotes(List<Vote> votes) {
+		this.votes = votes;
 	}
 
 }

@@ -1,34 +1,27 @@
 package br.com.entelgy.model;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
+import java.util.Date;
 
-@Document(collection = "votes")
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
+/**
+ * Vote submodel.
+ * 
+ * @author falvojr
+ */
 public class Vote {
 
-	@Id
-	private String id;
-	@DBRef
-	@Indexed
-	private String idCandidate;
+	@DateTimeFormat(iso = ISO.DATE_TIME)
+	private Date createdDate = new Date();
 	private String reCaptchaResponse;
 
-	public String getId() {
-		return id;
+	public Date getCreatedDate() {
+		return createdDate;
 	}
 
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public String getIdCandidate() {
-		return idCandidate;
-	}
-
-	public void setIdCandidate(String idCandidate) {
-		this.idCandidate = idCandidate;
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
 	}
 
 	public String getReCaptchaResponse() {

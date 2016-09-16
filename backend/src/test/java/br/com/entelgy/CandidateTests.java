@@ -13,7 +13,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.io.IOException;
 
-import org.junit.Before;
+import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
 import br.com.entelgy.model.Candidate;
-import br.com.entelgy.model.CandidateRepository;
+import br.com.entelgy.model.repository.CandidateRepository;
 import br.com.entelgy.util.StringTestUtil;
 
 /**
@@ -43,7 +43,7 @@ public class CandidateTests {
 	@Autowired
 	private CandidateRepository candidatesRepository;
 
-	@Before
+	@After
 	public void deleteAllBeforeTests() throws Exception {
 		candidatesRepository.deleteAll();
 	}
