@@ -43,3 +43,15 @@ gradle bootRun
 
 *O comando acima irá subir nossa API REST e com o isso o frontend poderá consumí-la.*  
 *Nota: no Ubuntu 16.04 o script em questão é finalizado com sucesso, mas o terminal apresenta `> Building 80% > :bootRun`. Entretanto, isso não impacta no acesso à API, que já estará disponível.*
+
+## Testes ##
+
+A classe `CandidateTests` encapsula os testes dos principais enpoints da API.
+Nesse sentido, foi utilizada a implementação `SpringRunner`, que funciona em conjunto com o JUnit 4 e o Mock MVC.
+Para rodar os testes unitários basta executar o seguinte comando:
+
+```
+gradle build
+```
+
+*ATENÇÃO: a classe de testes está configurada para excluir todo o banco de dados após a sua execução. Por isso, caso queira mantê-los, basta comentar a linha abaixo do `TODO`*
