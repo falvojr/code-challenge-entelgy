@@ -2,9 +2,9 @@
 
 Nas seções a seguir, irei descrever as decisões mais relevantes do ponto de vista técnico.
 
-## Spring Boot ##
+## Spring Boot, Data e REST ##
 
-Nunca havia utilizado esse módulo do Spring na prática, mas fiquei bastante impressionado com a organização e facilidades que ele proporciona. 
+Nunca havia utilizado esses módulos do Spring juntos, mas fiquei bastante impressionado com a organização e facilidades que ele proporciona. 
 Além disso, pude utilizar uma arquitetura que se assemelha em muitos aspectos com o MEAN (MongoDB, [ExpressJS](https://github.com/expressjs/express), AngularJS e Node.js), uma abordagem emergente atualmente. 
 Em termos praticos o Node.js deu lugar ao Java e o ExpressJS ao Spring.
 
@@ -18,6 +18,13 @@ Caso queira utilizar o MongoDB localmente, basta alterar a constante `MONGODB_CL
 
 Devido à estrutura atual dos projeto, tive de permitir acesso aos métodos GET e PATH em meu CORS Filter na classe `RestConfig.java`. 
 Assim, as aplicações (backend e frontend) podems e comunicar mesmo em domínios diferentes.
+
+## AngularJS e Angular Material ##
+
+Tais escolhas para o frontend se devem a duas coisas:
+
+1. O Angulat Material é uma implementação de referência do Google Material Design, talves um dos padrões mais difundidos atualmente. Além disso, é totalmente responsivo e aderente ao conceito de Mobile First;
+2. Já o Angular utilizei porque tenho boa familiaridade com o framework e isso me ajudou em termos de produtividade.
 
 ## Ecoluções ##
 
