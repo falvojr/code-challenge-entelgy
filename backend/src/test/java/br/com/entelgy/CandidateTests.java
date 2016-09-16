@@ -45,8 +45,8 @@ public class CandidateTests {
 
 	@After
 	public void deleteAllAfterTest() throws Exception {
-		//TODO Comment the following line to keep the test data.
-		//candidatesRepository.deleteAll();
+		// TODO Comment the following line to keep the test data.
+		candidatesRepository.deleteAll();
 	}
 
 	/**
@@ -54,9 +54,7 @@ public class CandidateTests {
 	 */
 	@Test
 	public void shouldReturnRepositoryIndex() throws Exception {
-		mockMvc.perform(get("/"))
-				.andExpect(status().isOk())
-				.andExpect(jsonPath("$._links.candidates").exists());
+		mockMvc.perform(get("/")).andExpect(status().isOk()).andExpect(jsonPath("$._links.candidates").exists());
 	}
 
 	/**
@@ -65,8 +63,7 @@ public class CandidateTests {
 	@Test
 	public void shouldCreateEntity() throws Exception {
 		final String jsonContent = JsonTestUtil.convertObjectToJsonString(mock());
-		mockMvc.perform(post("/candidates").content(jsonContent))
-				.andExpect(status().isCreated())
+		mockMvc.perform(post("/candidates").content(jsonContent)).andExpect(status().isCreated())
 				.andExpect(header().string("Location", containsString("candidates/")));
 	}
 
@@ -76,25 +73,23 @@ public class CandidateTests {
 	@Test
 	public void shouldUpdateEntity() throws Exception {
 		final Candidate candidate = mock();
-		final MvcResult mvcResult = mockMvc.perform(post("/candidates").content(JsonTestUtil.convertObjectToJsonString(candidate)))
-				.andExpect(status().isCreated())
-				.andReturn();
-		
+		final MvcResult mvcResult = mockMvc
+				.perform(post("/candidates").content(JsonTestUtil.convertObjectToJsonString(candidate)))
+				.andExpect(status().isCreated()).andReturn();
+
 		final String name = "Barack";
 		final String overview = "Yes we can!";
 		final String photo = "svg-4";
 		candidate.setName(name);
 		candidate.setOverview(overview);
 		candidate.setAvatar(photo);
-		
+
 		final String location = mvcResult.getResponse().getHeader("Location");
 		mockMvc.perform(put(location).content(JsonTestUtil.convertObjectToJsonString(candidate)))
 				.andExpect(status().isNoContent());
 
-		mockMvc.perform(get(location)).andExpect(status().isOk())
-				.andExpect(jsonPath("$.name").value(name))
-				.andExpect(jsonPath("$.overview").value(overview))
-				.andExpect(jsonPath("$.avatar").value(photo));
+		mockMvc.perform(get(location)).andExpect(status().isOk()).andExpect(jsonPath("$.name").value(name))
+				.andExpect(jsonPath("$.overview").value(overview)).andExpect(jsonPath("$.avatar").value(photo));
 	}
 
 	/**
@@ -102,10 +97,10 @@ public class CandidateTests {
 	 */
 	@Test
 	public void shouldPartiallyUpdateEntity() throws Exception {
-		final MvcResult mvcResult = mockMvc.perform(post("/candidates").content(JsonTestUtil.convertObjectToJsonString(mock())))
-				.andExpect(status().isCreated())
-				.andReturn();
-		
+		final MvcResult mvcResult = mockMvc
+				.perform(post("/candidates").content(JsonTestUtil.convertObjectToJsonString(mock())))
+				.andExpect(status().isCreated()).andReturn();
+
 		final Candidate candidate = new Candidate();
 		final String name = "Bear";
 		final String photo = "svg-5";
@@ -117,9 +112,7 @@ public class CandidateTests {
 		mockMvc.perform(patch(location).content(JsonTestUtil.convertObjectToJsonString(candidate)))
 				.andExpect(status().isNoContent());
 
-		mockMvc.perform(get(location))
-				.andExpect(status().isOk())
-				.andExpect(jsonPath("$.name").value(name));
+		mockMvc.perform(get(location)).andExpect(status().isOk()).andExpect(jsonPath("$.name").value(name));
 	}
 
 	/**
@@ -129,15 +122,12 @@ public class CandidateTests {
 	public void shouldDeleteEntity() throws Exception {
 		final String jsonContent = JsonTestUtil.convertObjectToJsonString(mock());
 		final MvcResult mvcResult = mockMvc.perform(post("/candidates").content(jsonContent))
-				.andExpect(status().isCreated())
-				.andReturn();
+				.andExpect(status().isCreated()).andReturn();
 
 		final String location = mvcResult.getResponse().getHeader("Location");
-		mockMvc.perform(delete(location))
-				.andExpect(status().isNoContent());
+		mockMvc.perform(delete(location)).andExpect(status().isNoContent());
 
-		mockMvc.perform(get(location))
-				.andExpect(status().isNotFound());
+		mockMvc.perform(get(location)).andExpect(status().isNotFound());
 	}
 
 	/**

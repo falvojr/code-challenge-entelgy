@@ -88,7 +88,7 @@ CandidateController.$inject = ['candidateService', 'vcRecaptchaService', '$mdSid
             $mdDialog.show({
               controller: DialogController,
               controllerAs: 'vmDialog',
-              templateUrl: 'src/candidates/view/dialog.html',
+              templateUrl: 'templates/dialog.html',
               parent: angular.element(document.body),
               targetEvent: ev,
               locals: {
