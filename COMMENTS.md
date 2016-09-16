@@ -26,8 +26,10 @@ Tais escolhas para o frontend se devem a duas coisas:
 1. O Angulat Material é uma implementação de referência do Google Material Design, talves um dos padrões mais difundidos atualmente. Além disso, é totalmente responsivo e aderente ao conceito de Mobile First;
 2. Já o Angular utilizei porque tenho boa familiaridade com o framework e isso me ajudou em termos de produtividade.
 
-## Ecoluções ##
+## TODO ##
 
-* Make file
-* ECS6
+Como evoluções futuras, pensei nos seguintes itens:
+
+* Makefile: arquivo com scripts organizados de modo a facilitar os testes e implantação do projeto; 
+* ECS6: migrar todo o frontend para o ECMAScript 6, mesmo que para isso fosse necessário utilizar um compilador/tradutor como o [Babel](https://github.com/babel/babel/). Pois a nova versão dessa especificação traz melhorias fantásticas para o JavaScript.
 * i18n
