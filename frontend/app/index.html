@@ -26,7 +26,7 @@
 
     <md-toolbar class="md-hue-2" layout="row">
       <div class="md-toolbar-tools">
-        <md-button class="menu" hide-gt-sm ng-click="candidateVm.toggleList()" aria-label="Show Candidate List"  ng-show="candidateVm.candidates">
+        <md-button class="menu" hide-gt-sm ng-click="candidateVm.toggleList()" aria-label="Show Candidate List"  ng-show="candidateVm.candidates.length">
           <md-icon md-svg-icon="menu" ></md-icon>
         </md-button>
         <h1>
@@ -35,12 +35,12 @@
       </div>
     </md-toolbar>
 
-    <div flex layout="column" layout-align="center center" ng-show="!candidateVm.candidates">
+    <div flex layout="column" layout-align="center center" ng-show="!candidateVm.candidates.length">
         <h1>Nenhum candidato encontrado :(</h1>
         <h1>Por favor, siga as instruções da seção <a href="https://bitbucket.org/falvojr/entelgy-challenge">BackEnd</a>.</h1>
     </div>
 
-    <div flex layout="row" ng-show="candidateVm.candidates">
+    <div flex layout="row" ng-show="candidateVm.candidates.length">
 
         <md-sidenav  ng-click="candidateVm.toggleList()" md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-whiteframe-z2" >
           <md-list>
@@ -58,11 +58,15 @@
           <h1>{{candidateVm.selected.name}}</h1>
           <p>{{candidateVm.selected.overview}}</p>
           <div vc-recaptcha
-            on-create ="candidateVm.recaptchaSetWidgetId(widgetId)"
-            on-success="candidateVm.recaptchaSubmit(response)"
-            on-expire ="candidateVm.recaptchaReload()">
+            on-create ="candidateVm.reCaptchaSetWidgetId(widgetId)"
+            on-success="candidateVm.reCaptchaSubmit(response)"
+            on-expire ="candidateVm.reCaptchaReload()">
           </div>
-          <md-button ng-disabled="!candidateVm.recaptchaResponse" class="md-raised md-primary">Vote</md-button>
+          <md-button class="md-raised md-primary"
+            ng-disabled="!candidateVm.reCaptchaResponse"
+            ng-click="candidateVm.patchCandidate(candidateVm.selected, $event)">
+            Vote
+          </md-button>
         </md-content>
 
     </div>
@@ -70,11 +74,14 @@
     <script src="../node_modules/angular/angular.js"></script>
     <script src="../node_modules/angular-animate/angular-animate.js"></script>
     <script src="../node_modules/angular-aria/angular-aria.js"></script>
-    <script type="text/javascript" src="../node_modules/angular-material/angular-material.js"></script>
+    <script src="../node_modules/angular-material/angular-material.js"></script>
     <!-- Include the JS ReCaptcha API -->
     <script src="//www.google.com/recaptcha/api.js?render=explicit&onload=vcRecaptchaApiLoaded" async defer></script>
     <!-- Include the ngReCaptcha directive -->
     <script src="../node_modules/angular-recaptcha/release/angular-recaptcha.js"></script>
+    <!-- Angular Chart -->
+    <script src="../node_modules/chart.js/dist/Chart.js"></script>
+    <script src="../node_modules/angular-chart.js/dist/angular-chart.js"></script>
 
     <script src="./src/candidates/Candidates.js"></script>
     <script src="./src/candidates/CandidateController.js"></script>
@@ -83,7 +90,7 @@
     <script type="text/javascript">
 
           angular
-              .module('entelgyApp', ['ngMaterial', 'vcRecaptcha', 'candidates'])
+              .module('entelgyApp', ['ngMaterial', 'vcRecaptcha', 'chart.js', 'candidates'])
               .config(function(vcRecaptchaServiceProvider){
                   vcRecaptchaServiceProvider.setDefaults({
                     key: '6LfbxwYUAAAAAGXadtJcjlxvHmkkzcQSHXFB62kI',
@@ -94,6 +101,10 @@
                       .defaultIconSet("./assets/svg/avatars.svg", 128)
                       .icon("menu", "./assets/svg/menu.svg", 24);
                   $mdThemingProvider.theme('default');
+              })
+              .config(function (ChartJsProvider) {
+                ChartJsProvider.setOptions({
+                  colors : [ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] });
               })
               .constant('ENV', {
                   'API_HOST': 'http://localhost:8080',

@@ -24,7 +24,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
 import br.com.entelgy.model.Candidate;
-import br.com.entelgy.model.repository.CandidateRepository;
+import br.com.entelgy.model.rest.CandidateRepository;
 import br.com.entelgy.util.StringTestUtil;
 
 /**

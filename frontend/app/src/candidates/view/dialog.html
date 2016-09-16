@@ -1,0 +1,30 @@
+<md-dialog aria-label="Janela de comprovante">
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Comprovante</h2>
+      </div>
+    </md-toolbar>
+    <md-dialog-content class="dialog-content">
+      <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="Recibo">
+          <md-content flex layout="column" layout-align="none center" class="md-padding">
+            <h2>Obrigado pelo seu voto!</h2>
+            <h3>Segue abaixo o hash que certifica que você é um humano ;)</h3>
+            <p class="dialog-recaptcha">{{vmDialog.reCaptchaResponse}}</p>
+          </md-content>
+        </md-tab>
+        <md-tab label="Resultado Parcial">
+          <md-content class="md-padding">
+            <canvas id="doughnut" class="chart chart-doughnut"
+              chart-data="vmDialog.chart.data" chart-labels="vmDialog.chart.labels">
+            </canvas>
+          </md-content>
+        </md-tab>
+      </md-tabs>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+      <md-button ng-click="vmDialog.close()">Fechar</md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

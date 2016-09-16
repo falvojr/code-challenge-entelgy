@@ -1,10 +1,10 @@
 (function(){
 
   angular
-       .module('candidates')
-       .controller('CandidateController', CandidateController);
+   .module('candidates')
+   .controller('CandidateController', CandidateController);
 
-CandidateController.$inject = ['candidateService', 'vcRecaptchaService', '$mdSidenav', '$mdToast', '$log'];
+CandidateController.$inject = ['candidateService', 'vcRecaptchaService', '$mdSidenav', '$mdToast', '$mdDialog', '$log'];
 
   /**
    * Candidate Controller for the Angular App.
@@ -15,40 +15,51 @@ CandidateController.$inject = ['candidateService', 'vcRecaptchaService', '$mdSid
    * @param $log
    * @constructor
    */
-  function CandidateController(candidateService, vcRecaptchaService, $mdSidenav, $mdToast, $log) {
+  function CandidateController(candidateService, vcRecaptchaService, $mdSidenav, $mdToast, $mdDialog, $log) {
     var vm = this;
 
     vm.selected             = null;
     vm.candidates           = [ ];
     vm.selectCandidate      = selectCandidate;
     vm.toggleList           = toggleCandidatesList;
-    vm.recaptchaResponse    = null;
-    vm.recaptchaSetWidgetId = recaptchaSetWidgetId;
-    vm.recaptchaSubmit      = recaptchaSubmit;
-    vm.recaptchaReload      = recaptchaReload;
+    vm.patchCandidate       = patchCandidate;
+    vm.reCaptchaResponse    = null;
+    vm.reCaptchaSetWidgetId = reCaptchaSetWidgetId;
+    vm.reCaptchaSubmit      = reCaptchaSubmit;
+    vm.reCaptchaReload      = reCaptchaReload;
 
     // Load all registered candidates
 
-    loadAllCandidates();
+    getCandidates();
 
     // *********************************
     // Internal methods
     // *********************************
 
-    function loadAllCandidates() {
+    function getCandidates() {
       candidateService
-            .getCandidates()
-            .then(function(candidates) {
-              vm.candidates = candidates;
-              vm.selected = candidates[0];
-            })
-            .catch(function () {
-              $mdToast.show(
-                $mdToast.simple()
-                  .textContent('Falha ao buscar os candidatos!')
-                  .hideDelay(3000)
-              );
-            });
+        .getCandidates()
+        .then(function(candidates) {
+          if(candidates) {
+            vm.candidates = candidates;
+            vm.selected = candidates[0];
+          }
+        })
+        .catch(function () {
+          showToast('Falha ao buscar os candidatos!');
+        });
+    }
+
+    function showToast(msg) {
+      $mdToast.show(
+        $mdToast.simple()
+          .textContent(msg)
+          .hideDelay(3000)
+      );
+    }
+
+    function getCandidatesSummary() {
+      return candidateService.getCandidatesSummary();
     }
 
     /**
@@ -57,7 +68,7 @@ CandidateController.$inject = ['candidateService', 'vcRecaptchaService', '$mdSid
     function toggleCandidatesList() {
       $mdSidenav('left').toggle();
       if (vm.widgetId != null) {
-        recaptchaReload();
+        reCaptchaReload();
       }
     }
 
@@ -65,21 +76,65 @@ CandidateController.$inject = ['candidateService', 'vcRecaptchaService', '$mdSid
       vm.selected = angular.isNumber(candidate) ? self.candidates[candidate] : candidate;
     }
 
-    function recaptchaSetWidgetId(widgetId) {
+    function patchCandidate(candidate, ev) {
+      var vote = {
+        reCaptchaResponse: vm.reCaptchaResponse
+      };
+      candidate.votes.push(vote);
+      candidateService
+        .patchCandidate(candidate)
+        .then(function() {
+            reCaptchaReload();
+            $mdDialog.show({
+              controller: DialogController,
+              controllerAs: 'vmDialog',
+              templateUrl: 'src/candidates/view/dialog.html',
+              parent: angular.element(document.body),
+              targetEvent: ev,
+              locals: {
+                reCaptchaResponse: vote.reCaptchaResponse
+              }
+            });
+        })
+        .catch(function () {
+          showToast('Falha ao registrar o voto!');
+        });
+    }
+
+    function reCaptchaSetWidgetId(widgetId) {
         $log.info('Created widget ID: %s', widgetId);
         vm.widgetId = widgetId;
     }
 
-    function recaptchaSubmit(response) {
+    function reCaptchaSubmit(response) {
       $log.info('Response available');
-      vm.recaptchaResponse = response;
+      vm.reCaptchaResponse = response;
     }
 
-    function recaptchaReload() {
+    function reCaptchaReload() {
       $log.info('Captcha expired. Resetting response object');
       vcRecaptchaService.reload(self.widgetId);
-      vm.recaptchaResponse = null;
-    };
+      vm.reCaptchaResponse = null;
+    }
+
+    function DialogController($mdDialog, reCaptchaResponse) {
+      var vmDialog = this;
+      vmDialog.reCaptchaResponse = reCaptchaResponse;
+      vmDialog.close = close;
+      vmDialog.chart = { };
+
+      getCandidatesSummary()
+        .then(function(chartData) {
+          vmDialog.chart = chartData;
+        })
+        .catch(function () {
+          showToast('Falha ao buscar os resultados parciais!');
+        });
+
+      function close() {
+        $mdDialog.hide();
+      }
+    }
   }
 
 })();

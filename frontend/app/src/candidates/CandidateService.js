@@ -16,7 +16,9 @@ candidateService.$inject = ['$http', '$log', 'ENV'];
    */
   function candidateService($http, $log, ENV){
     var service = {
-        getCandidates: getCandidates
+        getCandidates: getCandidates,
+        patchCandidate: patchCandidate,
+        getCandidatesSummary: getCandidatesSummary
     };
 
     return service;
@@ -25,15 +27,32 @@ candidateService.$inject = ['$http', '$log', 'ENV'];
 
     function getCandidates() {
       return $http.get(ENV.API_HOST + '/candidates')
-                  .then(getCandidatesComplete)
-                  .catch(getCandidatesFailed);
+        .then(getCandidatesComplete);
 
       function getCandidatesComplete(response) {
           return response.data._embedded.candidates;
       }
+    }
 
-      function getCandidatesFailed(error) {
-          $log.error('XHR Failed to getCandidates: ' + error.data);
+    function patchCandidate(candidate) {
+      var data = {
+        votes: candidate.votes
+      }
+      // This is RESTful ;)
+      return $http.patch(candidate._links.self.href, data)
+        .then(patchCandidateComplete);
+
+      function patchCandidateComplete(response) {
+          return response.data;
+      }
+    }
+
+    function getCandidatesSummary() {
+      return $http.get(ENV.API_HOST + '/candidates/summary')
+        .then(getCandidatesSummaryComplete);
+
+      function getCandidatesSummaryComplete(response) {
+          return response.data;
       }
     }
   }

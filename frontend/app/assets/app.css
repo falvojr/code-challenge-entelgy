@@ -118,7 +118,6 @@ md-toolbar h1 {
   -moz-transform:scale(0.70);
 }
 
-
 md-bottom-sheet  md-icon {
   margin-right:20px;
 }
@@ -127,4 +126,19 @@ span.name {
   font-weight: bold;
   font-size:1.1em;
   padding-left:5px;
+}
+
+/* Dialog */
+
+.dialog-recaptcha {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; // This is where the magic happens
+}
+
+.dialog-content {
+  min-width:360px;
+  min-height:370px;
+  max-width:600px;
+  max-height:610px;
 }

@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
@@ -21,7 +20,6 @@ public class Candidate {
 	private String name;
 	private String avatar;
 	private String overview;
-	@Indexed
 	private List<Vote> votes = new ArrayList<>();
 
 	public ObjectId getId() {
